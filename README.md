@@ -3,9 +3,10 @@
 The eloomi API NuGet package makes it easy to interact with the eloomi API in an object based approach. The package can be found here: https://www.nuget.org/packages/Eloomi.Eloomi.Api and the API documentation here: https://api.eloomi.com/apidoc
 
 Currently the package supports the following endpoints
-* Users
-* Units (Departments)
-* Teams
+* [Initialisation](#initialisation)
+* [Users](#initialisation)
+* [Units (Departments)](#units-endpoint-departments)
+* [Teams](#teams)
 * Courses
 * Goals
 
