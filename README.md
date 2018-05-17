@@ -3,7 +3,7 @@
 The eloomi API NuGet package makes it easy to interact with the eloomi API in an object based approach. The package can be found here: https://www.nuget.org/packages/Eloomi.Eloomi.Api and the API documentation here: https://api.eloomi.com/apidoc
 
 Currently the package supports the following endpoints
-* [Initialisation](#initialisation)
+* [Initialization](#Initialization)
 * [Users](#initialisation)
 * [Units (Departments)](#units-endpoint-departments)
 * [Teams](#teams)
@@ -11,9 +11,9 @@ Currently the package supports the following endpoints
 * Goals
 
 
-# Initialisation 
+# Initialization 
 
-The initialisation of the NuGet package requires the **Client ID** and **Client Secret** which you have recieved from eloomi. If you do not yet have an id/secret pair, please feel free to contact your customer representive.
+The Initialization of the NuGet package requires the **Client ID** and **Client Secret** which you have recieved from eloomi. If you do not yet have an id/secret pair, please feel free to contact your customer representive.
 
 #### Standard connection
 The most standarized way of connecting to the API is with the following code
