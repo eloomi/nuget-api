@@ -6,7 +6,7 @@ Currently the package supports the following endpoints
 * [Initialization](#initialization)
 * [Users](#users-endpoint)
 * [Units (Departments)](#units-endpoint-departments)
-* [Teams](#teams)
+* [Teams](#teams-endpoint)
 * Courses
 * Goals
 
