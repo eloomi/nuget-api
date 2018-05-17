@@ -6,15 +6,15 @@ Currently the package supports the following endpoints
 * Users
 * Units (Departments)
 * Teams
-* Courses ( Missing code examples )
-* Goals ( Missing code examples )
+* Courses
+* Goals
 
 
 # Initialisation 
 
 The initialisation of the NuGet package requires the **Client ID** and **Client Secret** which you have recieved from eloomi. If you do not yet have an id/secret pair, please feel free to contact your customer representive.
 
-**Standard connection**
+#### Standard connection
 The most standarized way of connecting to the API is with the following code
 
 ```c#
@@ -35,7 +35,7 @@ The most standarized way of connecting to the API is with the following code
         }
     }
 ```
- **Proxy connection**
+#### Proxy connection
  In some cases it might be neccesary to proxy all calls to the services. This can be done by filling in a **System.Net.IWebProxy** object as the last parameter of the API() Initialiser.
  ```c#
 using EloomiApiV2;
@@ -58,7 +58,7 @@ namespace EloomiApiTest
     }
 }
 ```
-**Debugging**
+#### Debugging
 If debugging is set to true, output will be made to the console *(Console.WriteLine)* with details of the JSON posted and recieved. Debugging is turned on by setting the API.Debug() method as true.
  ```c#
 using EloomiApiV2;
@@ -95,10 +95,10 @@ Each of these adapters will contain methods to work with the given endpoints.
 With the users endpoint it is possible to do actions on the user objects in eloomi. A user will always have a unique numeric ID, but it is also possible when creating or updating the user object, to fill in a **"employee_id"** this can be anything, but most probably your internal id for the given employee. The API offers various methods to filter, 
 select and update based on this as well.
 
-**Custom attributes notice**
+#### Custom attributes notice
 Custom attributes are possible but must be registered in the system before usage. Therefor please contact your eloomi representive before utilizing them since it may throw exceptions if not allowed.
 
-**User model**
+#### User model
 The most used parameters on the user-model is as the following.
  ```c#
             EloomiApiV2.Model.User NewUser = new EloomiApiV2.Model.User()
@@ -124,7 +124,7 @@ The most used parameters on the user-model is as the following.
             };
 ```
 ## Get user/users
-**Get all users**
+#### Get all users
  ```c#
             var Users = API.User().Get();
 
@@ -137,7 +137,7 @@ The most used parameters on the user-model is as the following.
             }
 ```
 
-**Get a user by eloomi ID**
+#### Get a user by eloomi ID
  ```c#
             var User = API.User().Get(150); // ID = 150
 
@@ -151,7 +151,7 @@ The most used parameters on the user-model is as the following.
             }
 ```
 
-**Get a user by employee id**
+#### Get a user by employee id
  ```c#
             var User = API.User().GetByEmployeeID("EMPLOYEE1234"); // employee_id = EMPLOYEE1234
 
@@ -166,7 +166,7 @@ The most used parameters on the user-model is as the following.
 ```
 
 ## Add user
-**Add a user to eloomi**
+#### Add a user to eloomi
 When adding a user to eloomi please note that FirstName, LastName and one of Email or UserName is required fields. Rest is optional.
 
  ```c#
@@ -195,7 +195,7 @@ When adding a user to eloomi please note that FirstName, LastName and one of Ema
 ## Update user
 As when getting users, you may also update users either with eloomi ID or employee_id.
 
-**Update user with eloomi ID**
+#### Update user with eloomi ID
 When calling the Update adapter method, the package will look for the Id attribute on the user, and update accordingly.
  ```c#
             // User object with valid Id parameter
@@ -221,7 +221,7 @@ When calling the Update adapter method, the package will look for the Id attribu
             }
 ```
 
-**Update user with own employee id**
+#### Update user with own employee id
 When calling the UpdateByEmployeeID method, the package will look for the EmployeeID attribute on the user, and update accordingly.
 
  ```c#
@@ -251,7 +251,7 @@ When calling the UpdateByEmployeeID method, the package will look for the Employ
 ## Delete user
 As when getting and updating users, you may also delete users either with eloomi ID or employee_id. We do generally not encourage the use of "Delete" but rather EndOfEmploymentAt which will automatically deactivate the given user.
 
-**Delete with eloomi ID**
+#### Delete with eloomi ID
 When calling the Update adapter method, the package will look for the Id attribute on the user, and update accordingly.
  ```c#
             // User object with valid Id parameter
@@ -274,7 +274,7 @@ When calling the Update adapter method, the package will look for the Id attribu
             }
 ```
 
-**Delete with employee ID**
+#### Delete with employee ID
 When calling the Update adapter method, the package will look for the Id attribute on the user, and update accordingly.
  ```c#
             var DeleteResponse = API.User().DeleteByEmployeeID("EMPLOYEE1234");
@@ -293,10 +293,10 @@ When calling the Update adapter method, the package will look for the Id attribu
 # Units endpoint (Departments)
 With the units endpoint it is possible to do actions on the unit/department objects in eloomi. A unit will always have a unique numeric ID, but it is also possible when creating or updating the unit object, to fill in a **"department_code"** this can be anything, but most probably your internal id for the given department. The API offers various methods to filter,  select and update based on this as well.
 
-**Custom attributes notice**
+#### Custom attributes notice
 Custom attributes are possible but must be registered in the system before usage. Therefor please contact your eloomi representive before utilizing them since it may throw exceptions if not allowed.
 
-**Unit model**
+#### Unit model
 The most used parameters on the unit-model is as the following.
  ```c#
             EloomiApiV2.Model.Unit Unit = new EloomiApiV2.Model.Unit()
@@ -317,7 +317,7 @@ The most used parameters on the unit-model is as the following.
             };
 ```
 ## Get unit/units
-**Get all users**
+#### Get all users
  ```c#
             var Units = API.Unit().Get();
 
@@ -330,7 +330,7 @@ The most used parameters on the unit-model is as the following.
             }
 ```
 
-**Get a unit by eloomi ID**
+#### Get a unit by eloomi ID
  ```c#
             var Unit = API.Unit().Get(150); // ID = 150
 
@@ -345,7 +345,7 @@ The most used parameters on the unit-model is as the following.
             }
 ```
 
-**Get a unit by unit code**
+#### Get a unit by unit code
  ```c#
             var Unit = API.Unit().GetByUnitCode("UNIT1234"); // code = UNIT1234
 
@@ -361,10 +361,10 @@ The most used parameters on the unit-model is as the following.
 ```
 
 ## Add unit
-**Add a user to eloomi**
+#### Add a user to eloomi
 When adding a unit to eloomi please note that Name is a required field. Rest is optional.
 
-**Add to top level**
+#### Add to top level
 If you want to create a unit which resides at the top-most level of the organizational hierachy, follow this example
  ```c#
             // Create a unit object from model
@@ -388,7 +388,7 @@ If you want to create a unit which resides at the top-most level of the organiza
             }
 ```
 
-**Create a unit as a child of another unit**
+#### Create a unit as a child of another unit
 If you would like the unit to be a child of another unit, this can be achieved by either using the other units "CODE" or "ID".
 
  ```c#
@@ -406,7 +406,7 @@ If you would like the unit to be a child of another unit, this can be achieved b
 ## Update unit
 You may update units by either code or ID in the same way as when updating users
 
-**Update unit with eloomi ID**
+#### Update unit with eloomi ID
 When calling the Update adapter method, the package will look for the Id attribute on the unit, and update accordingly.
 
  ```c#
@@ -425,7 +425,7 @@ When calling the Update adapter method, the package will look for the Id attribu
             }
 ```
 
-**Update unit with own code**
+#### Update unit with own code
 When calling the UpdateByUnitCode method, the package will look for the "Code" attribute on the unit, and update accordingly.
 
  ```c#
@@ -443,7 +443,7 @@ When calling the UpdateByUnitCode method, the package will look for the "Code" a
             }
 ```
 
-**Add users to unit**
+#### Add users to unit
 You can add and remove users from the unit with the "Users" list.
  ```c#
             var UnitToUpdate = API.Unit().Get(150);
@@ -457,7 +457,7 @@ You can add and remove users from the unit with the "Users" list.
             }
 ```
 
-**Add Leaders to unit**
+#### Add Leaders to unit
 You can add and remove leaders from the unit with the "Leaders" list.
  ```c#
             var UnitToUpdate = API.Unit().Get(150);
@@ -474,7 +474,7 @@ You can add and remove leaders from the unit with the "Leaders" list.
 ## Delete unit
 Deleting units can be done either with eloomi ID or through own unit code
 
-**Delete with eloomi ID**
+#### Delete with eloomi ID
 When calling the Update adapter method, the package will look for the Id attribute on the user, and update accordingly.
  ```c#
             // Delete the unit through ID
@@ -491,7 +491,7 @@ When calling the Update adapter method, the package will look for the Id attribu
             }
 ```
 
-**Delete with employee ID**
+#### Delete with employee ID
 When calling the Update adapter method, the package will look for the Id attribute on the user, and update accordingly.
  ```c#
             // Delete the unit through CODE
@@ -511,10 +511,10 @@ When calling the Update adapter method, the package will look for the Id attribu
 # Teams endpoint
 
 
-**Custom attributes notice**
+#### Custom attributes notice
 Custom attributes are possible but must be registered in the system before usage. Therefor please contact your eloomi representive before utilizing them since it may throw exceptions if not allowed.
 
-**Team model**
+#### Team model
 The most used parameters on the team-model is as the following.
  ```c#
             EloomiApiV2.Model.Team TeamModel = new EloomiApiV2.Model.Team()
@@ -530,7 +530,7 @@ The most used parameters on the team-model is as the following.
             };
 ```
 ## Get team/teams
-**Get all users**
+#### Get all users
  ```c#
             var Teams= API.Team().Get();
 
@@ -543,7 +543,7 @@ The most used parameters on the team-model is as the following.
             }
 ```
 
-**Get a unit by eloomi ID**
+#### Get a unit by eloomi ID
  ```c#
             var Team = API.Team().Get(150); // ID = 150
 
@@ -560,7 +560,7 @@ The most used parameters on the team-model is as the following.
 
 
 ## Add team
-**Add a user to eloomi**
+#### Add a user to eloomi
 When adding a team to eloomi please note that Name is a required field. Rest is optional.
  ```c#
             var NewTeam = new EloomiApiV2.Model.Team()
@@ -604,7 +604,7 @@ You may update teams directly and this way also add people to the team.
             }
 ```
 
-**Add users to team**
+#### Add users to team
 You can add and remove users from the team with the "Users" list.
  ```c#
             var TeamToUpdate = API.Team().Get(150);
@@ -618,7 +618,7 @@ You can add and remove users from the team with the "Users" list.
             }
 ```
 
-**Add Leaders to team**
+#### Add Leaders to team
 You can add and remove leaders from the team with the "Leaders" list.
  ```c#
             var TeamToUpdate = API.Team().Get(150);
