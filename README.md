@@ -4,7 +4,7 @@ The eloomi API NuGet package makes it easy to interact with the eloomi API in an
 
 Currently the package supports the following endpoints
 * [Initialization](#initialization)
-* [Users](#users)
+* [Users](#users-endpoint)
 * [Units (Departments)](#units-endpoint-departments)
 * [Teams](#teams)
 * Courses
