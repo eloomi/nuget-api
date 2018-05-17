@@ -6,8 +6,8 @@ Currently the package supports the following endpoints
 * Users
 * Units (Departments)
 * Teams
-* Courses
-* Goals
+* Courses ( Missing code examples )
+* Goals ( Missing code examples )
 
 
 # Initialisation 
